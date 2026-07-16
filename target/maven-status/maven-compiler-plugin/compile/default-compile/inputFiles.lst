@@ -1,10 +1,12 @@
-D:\github\splitwise-api\src\main\java\com\example\splitwise\controller\GlobalExceptionHandler.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\controller\SplitwiseController.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\model\Expense.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\model\ExpenseRequest.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\model\Member.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\model\MembersRequest.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\repository\ExpenseRepository.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\repository\MemberRepository.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\service\SplitwiseService.java
-D:\github\splitwise-api\src\main\java\com\example\splitwise\SplitwiseApiApplication.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\controller\GlobalExceptionHandler.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\controller\SplitwiseController.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\model\Expense.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\model\ExpenseRequest.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\model\Member.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\model\MembersRequest.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\model\Settlement.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\repository\ExpenseRepository.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\repository\MemberRepository.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\service\MinCashFlowSolver.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\service\SplitwiseService.java
+C:\Users\Rishika Snehi\Splitwise\src\main\java\com\example\splitwise\SplitwiseApiApplication.java

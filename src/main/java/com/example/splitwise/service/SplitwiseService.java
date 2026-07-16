@@ -2,6 +2,7 @@ package com.example.splitwise.service;
 
 import com.example.splitwise.model.Expense;
 import com.example.splitwise.model.Member;
+import com.example.splitwise.model.Settlement;
 import com.example.splitwise.repository.ExpenseRepository;
 import com.example.splitwise.repository.MemberRepository;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class SplitwiseService {
 
     private final MemberRepository memberRepository;
     private final ExpenseRepository expenseRepository;
+    private final MinCashFlowSolver minCashFlowSolver = new MinCashFlowSolver();
 
     public SplitwiseService(MemberRepository memberRepository, ExpenseRepository expenseRepository) {
         this.memberRepository = memberRepository;
@@ -115,6 +117,18 @@ public class SplitwiseService {
             }
         }
         return debts;
+    }
+
+    /**
+     * Replaces the naive simplifyDebts() reporting with the actual
+     * min-cash-flow algorithm: pulls current net balances straight from
+     * Mongo, then hands them to MinCashFlowSolver, which returns the
+     * smallest possible list of transactions (at most V-1) that settles
+     * everyone to zero. See MinCashFlowSolver's Javadoc for the full
+     * algorithm writeup.
+     */
+    public List<Settlement> settleDebts() {
+        return minCashFlowSolver.solve(getOutstandingBalances());
     }
 
     /**

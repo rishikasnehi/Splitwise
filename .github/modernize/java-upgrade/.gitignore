@@ -1,0 +1,9 @@
+# Maven build output
+target/
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml

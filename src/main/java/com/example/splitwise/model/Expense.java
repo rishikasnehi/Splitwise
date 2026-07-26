@@ -8,12 +8,12 @@ import java.util.List;
 /**
  * Direct port of the Python inner class:
  *
- *   class Expense:
- *       def __init__(self, payer, amount, participants, note):
- *           self.payer = payer
- *           self.amount = amount
- *           self.participants = participants
- *           self.note = note
+ * class Expense:
+ * def __init__(self, payer, amount, participants, note):
+ * self.payer = payer
+ * self.amount = amount
+ * self.participants = participants
+ * self.note = note
  *
  * Was: appended to the in-memory `expenses` List inside SplitwiseService.
  * Now: a document in MongoDB's "expenses" collection. It still doubles as
@@ -26,6 +26,8 @@ public class Expense {
     @Id
     private String id;
 
+    private String groupId;
+
     private String payer;
     private double amount;
     private List<String> participants;
@@ -35,11 +37,21 @@ public class Expense {
         // no-arg constructor required for JSON deserialization by Jackson
     }
 
-    public Expense(String payer, double amount, List<String> participants, String note) {
+    public Expense(String groupId, String payer, double amount, List<String> participants, String note) {
+        this.groupId = groupId;
         this.payer = payer;
         this.amount = amount;
         this.participants = participants;
         this.note = note;
+    }
+
+    /**
+     * Convenience constructor without a groupId - kept mainly so existing
+     * pure/unit-test code (e.g. NaiveVsOptimizedSettlementTest) that builds
+     * Expense objects directly, without any group context, still compiles.
+     */
+    public Expense(String payer, double amount, List<String> participants, String note) {
+        this(null, payer, amount, participants, note);
     }
 
     public String getId() {
@@ -48,6 +60,14 @@ public class Expense {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public String getPayer() {

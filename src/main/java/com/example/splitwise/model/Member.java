@@ -4,11 +4,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Was: an entry in the in-memory `users` Map<String, Double> inside SplitwiseService.
+ * Was: an entry in the in-memory `users` Map<String, Double> inside
+ * SplitwiseService.
  * Now: a document in MongoDB's "members" collection.
  *
  * @Document tells Spring Data which collection this maps to.
- * @Id marks the Mongo-generated primary key (an ObjectId, exposed here as a String).
+ * @Id marks the Mongo-generated primary key (an ObjectId, exposed here as a
+ *     String).
  */
 @Document(collection = "members")
 public class Member {
@@ -18,15 +20,15 @@ public class Member {
 
     private String name;
 
-    private double balance;
+    // private double balance;
 
     public Member() {
         // required by Spring Data for materializing documents
     }
 
-    public Member(String name, double balance) {
+    public Member(String name /* double balance */) {
         this.name = name;
-        this.balance = balance;
+        // this.balance = balance;
     }
 
     public String getId() {
@@ -45,11 +47,11 @@ public class Member {
         this.name = name;
     }
 
-    public double getBalance() {
-        return balance;
-    }
+    // public double getBalance() {
+    // return balance;
+    // }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
+    // public void setBalance(double balance) {
+    // this.balance = balance;
+    // }
 }

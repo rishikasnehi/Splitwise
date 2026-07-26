@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface ExpenseRepository extends MongoRepository<Expense, String> {
 
-    List<Expense> findByPayer(String payer);
+    List<Expense> findByGroupId(String groupId);
 }
